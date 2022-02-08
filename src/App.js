@@ -3,7 +3,6 @@ import "./index.css";
 import { getAllBooks, updateBook } from "./Api";
 // components
 import NavBar from "./components/Navbar";
-import BookList from "./components/BookList";
 import BookShelfType from "./components/BookShelfType";
 
 export default class App extends Component {
@@ -22,25 +21,19 @@ export default class App extends Component {
   }
 
   ChangeShelf = (book, shelf) => {
-
-
-    // this.setState(prev => ({ AllBooks: this.prev.AllBooks.filter(newBook => newBook.id !== book.id) }));
+    updateBook(book.id, shelf).then((res) => {
+      
+    });
+    // change book shelf
     book.shelf = shelf;
-    this.setState({AllBooks: this.state.AllBooks.filter(newBook => newBook.id !== book.id).concat(book)})
-    console.log(this.state.AllBooks);
-    
-
-    // updateBook(book.id, shelf).then((res) => {
-    //   // change book shelf
-    //   book.shelf = shelf;
-
-    //   this.setState({ AllBooks: AllBooks.filter(newBook => newBook.id !== book.id) });
-    //   console.log("shelf changed");
-    // });
+    this.setState({
+      AllBooks: this.state.AllBooks.filter(
+        (newBook) => newBook.id !== book.id
+      ).concat(book),
+    });
   };
 
   render() {
-    console.log("render");
     return (
       <div>
         <div className="books-list">

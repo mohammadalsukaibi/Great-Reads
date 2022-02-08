@@ -18,17 +18,6 @@ export default class BookShelfType extends Component {
       { type: "read", title: "Read" },
     ];
     return (
-    //   <div className="shelf">
-    //     <h2 className="shelf-title">{this.props.text}</h2>
-    //     <div className="shelf-books">
-    //       <ol className="books-box">
-    //         {this.props.books.length > 0 &&
-    //           this.props.books.map((book) => (
-    //             <Book key={book.id} data={book} />
-    //           ))}
-    //       </ol>
-    //     </div>
-    //   </div>
     <div className="list-books-content">
         {shelfTypes.map((shelf, index) => {
           const shelfBooks = books.filter(book => book.shelf === shelf.type);
