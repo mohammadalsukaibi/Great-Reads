@@ -12,14 +12,18 @@ export default class ShelfOptions extends Component {
   };
 
   render() {
-
     let currentShelf = "none";
-    for (let item of this.props.books) {
+
+    if (this.props.data.shelf) {
+      // console.log(this.props.data.shelf);
+      for (let item of this.props.books) {
         if (item.id === this.props.data.id) {
           currentShelf = item.shelf;
           break;
         }
+      }
     }
+
     return (
       <div className="shelf-shfiter">
         <select onChange={this.handleChange} defaultValue={currentShelf}>

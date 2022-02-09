@@ -121,12 +121,12 @@ body,
   bottom: 25px;
 }
 
-.search-btn button {
+.search-btn-link {
   display: block;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #da4167;
+  background: #444444;
   background-image: url("./icons/add.svg");
   background-repeat: no-repeat;
   background-position: center;

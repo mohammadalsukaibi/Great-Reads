@@ -11,7 +11,6 @@ export default class BookShelfType extends Component {
 
   render() {
     const { books, ChangeShelf } = this.props;
-    console.log(books);
     const shelfTypes = [
       { type: "currentlyReading", title: "Currently Reading" },
       { type: "wantToRead", title: "Want to Read" },

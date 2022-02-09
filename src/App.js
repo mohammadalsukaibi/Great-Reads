@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import "./index.css";
-import { getAllBooks, updateBook } from "./Api";
+import { getAllBooks, updateBook, searchBook } from "./Api";
+import { Routes, Route, Link } from "react-router-dom";
 // components
 import NavBar from "./components/Navbar";
 import BookShelfType from "./components/BookShelfType";
+import Search from "./components/Search";
+import Home from "./pages/Home";
 
 export default class App extends Component {
   constructor(props) {
@@ -21,9 +24,7 @@ export default class App extends Component {
   }
 
   ChangeShelf = (book, shelf) => {
-    updateBook(book.id, shelf).then((res) => {
-      
-    });
+    updateBook(book.id, shelf).then((res) => {});
     // change book shelf
     book.shelf = shelf;
     this.setState({
@@ -36,19 +37,10 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div className="books-list">
-          <NavBar />
-          <div className="books-list_content">
-            <div>
-              {this.state.AllBooks.length > 0 && (
-                <BookShelfType
-                  books={this.state.AllBooks}
-                  ChangeShelf={this.ChangeShelf}
-                />
-              )}
-            </div>
-          </div>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home ChangeShelf={this.ChangeShelf} books={this.state.AllBooks} />} />
+          <Route path="/search" element={<Search ChangeShelf={this.ChangeShelf}/>} />
+        </Routes>
       </div>
     );
   }
