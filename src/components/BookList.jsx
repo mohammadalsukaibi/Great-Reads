@@ -11,6 +11,7 @@ export default class BookList extends Component {
   render() {
     return (
       <div className="shelf">
+        <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="shelf-books">
           <ol className="books-box">
             {this.props.books.length > 0 && this.props.books.map((book) => <Book key={book.id} data={book} ChangeShelf={this.props.ChangeShelf} books={this.props.books}  />)}

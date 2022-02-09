@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { searchBook } from "../Api";
 import Book from "./Book";
 
@@ -9,6 +9,7 @@ export default class Search extends Component {
     super(props);
     this.state = {
       searchBooks: {},
+      notFound: false
     };
   }
 
@@ -16,7 +17,10 @@ export default class Search extends Component {
     const searchQuery = e.target.value;
     if (searchQuery) {
       searchBook(searchQuery).then((res) => {
-        console.log(res);
+        this.setState({notFound: false})        
+        if(res.length === undefined){
+          this.setState({notFound: true})
+        }
         this.setState({ searchBooks: res });
       });
     }
@@ -37,7 +41,7 @@ export default class Search extends Component {
             </div>
           </div>
           <div className="search-results">
-            {/* <BookList books={this.state.searchBooks} /> */}
+            {this.state.notFound && <h2>no result for your search query</h2>}
             <ol className="books-box">
             {this.state.searchBooks.length > 0 && this.state.searchBooks.map((book) => <Book key={book.id} data={book} ChangeShelf={this.props.ChangeShelf}  books={this.state.searchBooks}  />)}
             

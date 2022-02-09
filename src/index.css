@@ -14,10 +14,9 @@ body,
 
 .books-list_title {
   padding: 1px 5%;
-  margin: 10px 100px;
-  background: #f2f2f2;
-  color: rgb(0, 0, 0);
-  border-radius: 50px;
+  background: #eeeeee;
+  color: rgb(15, 14, 99);
+  text-align: center;
 }
 
 .books-list_content {
@@ -26,10 +25,10 @@ body,
 }
 /* shelf  */
 .shelf {
-  padding: 0 10px 20px;
-  background-color: rgb(243, 243, 243);
+  padding: 10px 20px;
+  background-color: #eeeeee;
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 25px;
 }
 @media (min-width: 600px) {
@@ -69,8 +68,7 @@ body,
 }
 .book-author {
   font-size: 0.9em;
-
-  color: #fff;
+  color: rgb(48, 46, 184);
 }
 
 .book-position {

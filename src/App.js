@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "./index.css";
-import { getAllBooks, updateBook, searchBook } from "./Api";
-import { Routes, Route, Link } from "react-router-dom";
+import { getAllBooks, updateBook } from "./Api";
+import { Routes, Route } from "react-router-dom";
 // components
-import NavBar from "./components/Navbar";
-import BookShelfType from "./components/BookShelfType";
 import Search from "./components/Search";
 import Home from "./pages/Home";
 
@@ -17,7 +15,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    //check if state is empty or not then call
+    
     getAllBooks().then((res) => {
       this.setState({ AllBooks: res });
     });

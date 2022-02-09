@@ -22,9 +22,9 @@ export default class BookShelfType extends Component {
           const shelfBooks = books.filter(book => book.shelf === shelf.type);
           return (
             <div key={index}>
-              <h2 className="bookshelf-title">{shelf.title}</h2>
+              
               <div className="bookshelf-books">
-                <BookList books={shelfBooks} ChangeShelf={ChangeShelf} />
+                <BookList books={shelfBooks} ChangeShelf={ChangeShelf} title={shelf.title} />
               </div>
             </div>
           );

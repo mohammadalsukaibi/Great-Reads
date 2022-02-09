@@ -25,7 +25,7 @@ export default class Book extends Component {
             <ShelfOptions data={this.props.data} ChangeShelf={this.props.ChangeShelf} books={this.props.books} />
           </div>
           <div className="book-title">{this.props.data.title}</div>
-          <div className="book-author">Douglas Crockford</div>
+          <div className="book-author">{this.props.data.authors[0]}</div>
         </div>
       </li>
     );
