@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 html,
 body,
 .root {
@@ -7,15 +9,16 @@ body,
 
 body,
 .app {
-  background: rgb(255, 255, 255);
+  background: #1a1a28;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* books container  */
 
 .books-list_title {
   padding: 1px 5%;
-  background: #eeeeee;
-  color: rgb(15, 14, 99);
+  background: #050514;
+  color: #2966c1;
   text-align: center;
 }
 
@@ -35,6 +38,10 @@ body,
   .shelf {
     padding: 10px 40px;
   }
+}
+
+.bookshelf-title{
+  color: #1a1a28;
 }
 .shelf-title {
   border-bottom: 2px solid rgb(99, 99, 99);
@@ -66,6 +73,11 @@ body,
   margin-top: 10px;
   font-size: 0.9em;
 }
+.book-title-search {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: white;
+}
 .book-author {
   font-size: 0.9em;
   color: rgb(48, 46, 184);
@@ -90,7 +102,7 @@ body,
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #262626;
+  background: #2966c1;
   background-image: url("./icons/arrow-drop-down.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -124,7 +136,7 @@ body,
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #444444;
+  background: #2966c1;
   background-image: url("./icons/add.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -179,4 +191,8 @@ body,
 
 .search-results {
   padding: 80px 10px 20px;
+}
+
+.search-results h2{
+  color: white;
 }

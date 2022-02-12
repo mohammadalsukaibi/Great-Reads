@@ -10,6 +10,7 @@ export default class Book extends Component {
 
 
   render() {
+    console.log(window.location.pathname);
     return (
       <li>
         <div className="book">
@@ -19,13 +20,13 @@ export default class Book extends Component {
               style={{
                 width: 128,
                 height: 193,
-                backgroundImage:`url(${this.props.data.imageLinks.thumbnail})`
+                backgroundImage:this.props.data.imageLinks ? `url(${this.props.data.imageLinks.thumbnail})` : `url(https://blog.springshare.com/wp-content/uploads/2010/02/nc-md.gif)`
               }}
             ></div>
             <ShelfOptions data={this.props.data} ChangeShelf={this.props.ChangeShelf} books={this.props.books} />
           </div>
-          <div className="book-title">{this.props.data.title}</div>
-          <div className="book-author">{this.props.data.authors[0]}</div>
+          <div className={window.location.pathname == "/search" ? 'book-title-search' : 'book-title'}>{this.props.data.title}</div>
+          {/* <div className="book-author">{this.props.data.authors[0]}</div> */}
         </div>
       </li>
     );
