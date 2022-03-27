@@ -44,7 +44,6 @@ export default class Search extends Component {
             {this.state.notFound && <h2>no result for your search query</h2>}
             <ol className="books-box">
             {this.state.searchBooks.length > 0 && this.state.searchBooks.map((book) => <Book key={book.id} data={book} ChangeShelf={this.props.ChangeShelf}  books={this.state.searchBooks}  />)}
-            
             </ol>
             
           </div>

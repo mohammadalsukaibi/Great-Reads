@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState,useEffect } from "react";
 import "./index.css";
 import { getAllBooks, updateBook } from "./Api";
 import { Routes, Route } from "react-router-dom";
@@ -6,40 +6,40 @@ import { Routes, Route } from "react-router-dom";
 import Search from "./components/Search";
 import Home from "./pages/Home";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      AllBooks: {},
-    };
-  }
+export default function App() {
 
-  componentDidMount() {
-    
+
+  const [allBooks, setallBooks] = useState([])
+  const [loading, setaloading] = useState(false)
+
+  useEffect(() => {
     getAllBooks().then((res) => {
-      this.setState({ AllBooks: res });
+      setallBooks(res);
     });
-  }
+  
+  }, [])
+  
 
-  ChangeShelf = (book, shelf) => {
+
+  const ChangeShelf = (book, shelf) => {
     updateBook(book.id, shelf).then((res) => {});
     // change book shelf
     book.shelf = shelf;
-    this.setState({
-      AllBooks: this.state.AllBooks.filter(
+    setallBooks(
+       allBooks.filter(
         (newBook) => newBook.id !== book.id
       ).concat(book),
-    });
+    );
   };
 
-  render() {
+
     return (
       <div>
         <Routes>
-          <Route path="/" element={<Home ChangeShelf={this.ChangeShelf} books={this.state.AllBooks} />} />
-          <Route path="/search" element={<Search ChangeShelf={this.ChangeShelf}/>} />
+          <Route path="/" element={<Home ChangeShelf={ChangeShelf} books={allBooks} />} />
+          <Route path="/search" element={<Search ChangeShelf={ChangeShelf}/>} />
         </Routes>
       </div>
     );
-  }
+  
 }
