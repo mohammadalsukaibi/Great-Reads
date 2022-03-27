@@ -24,7 +24,7 @@ export default class Book extends Component {
             ></div>
             <ShelfOptions data={this.props.data} ChangeShelf={this.props.ChangeShelf} books={this.props.books} />
           </div>
-          <div className={window.location.pathname == "/search" ? 'book-title-search' : 'book-title'}>{this.props.data.title}</div>
+          <div className={window.location.pathname === "/search" ? 'book-title-search' : 'book-title'}>{this.props.data.title}</div>
           <div className="book-author">{
           this.props.data.authors.map(function(item, index) {
             return <span key={index}>{ (index ? ', ' : '') + item }</span>;
